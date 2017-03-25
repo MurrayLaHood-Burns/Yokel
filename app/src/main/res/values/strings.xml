@@ -18,4 +18,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="order">Order:</string>
+    <string name="grower_description">This is where a local supplier for Local Yokel may put information about themselves and their produce. This provides a personal connection between consumers and the local farmers and ranchers that grew the food that they buy.</string>
+    <string name="grower_location">Spearfish, SD</string>
+    <string name="grower_name">Firstname Lastname</string>
+    <string name="grower_produces">product 1, product 2, product 3</string>
 </resources>

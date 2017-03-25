@@ -9,9 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.localyokel.yokel.dummy.DummyContent;
-import com.localyokel.yokel.dummy.DummyContent.DummyItem;
+import com.localyokel.yokel.ListItems.OrderContent;
+import com.localyokel.yokel.ListItems.OrderContent.OrderItem;
 
 import java.util.List;
 
@@ -69,7 +68,7 @@ public class OrderFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyOrderRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new MyOrderRecyclerViewAdapter(OrderContent.ITEMS, mListener));
         }
         return view;
     }
@@ -104,6 +103,6 @@ public class OrderFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(OrderItem item);
     }
 }

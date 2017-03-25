@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.localyokel.yokel.ListItems.GrowerContent;
 import com.localyokel.yokel.dummy.DummyContent;
 import com.localyokel.yokel.dummy.DummyContent.DummyItem;
 
@@ -69,7 +70,7 @@ public class GrowerFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyGrowerRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new MyGrowerRecyclerViewAdapter(GrowerContent.ITEMS, mListener));
         }
         return view;
     }
@@ -104,6 +105,6 @@ public class GrowerFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(GrowerContent.GrowerItem item);
     }
 }

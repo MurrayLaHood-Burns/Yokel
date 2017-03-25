@@ -9,11 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.localyokel.yokel.dummy.DummyContent;
-import com.localyokel.yokel.dummy.DummyContent.DummyItem;
-
-import java.util.List;
+import com.localyokel.yokel.ListItems.PackageContent;
+import com.localyokel.yokel.ListItems.PackageContent.PackageItem;
 
 /**
  * A fragment representing a list of Items.
@@ -69,7 +66,7 @@ public class PackageFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new MyPackageRecyclerViewAdapter(PackageContent.ITEMS, mListener));
         }
         return view;
     }
@@ -104,6 +101,6 @@ public class PackageFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(PackageItem item);
     }
 }

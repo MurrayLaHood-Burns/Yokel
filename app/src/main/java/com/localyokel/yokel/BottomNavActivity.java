@@ -5,17 +5,17 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.app.FragmentManager;
 import android.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.TextView;
 
-import com.localyokel.yokel.dummy.DummyContent;
+import com.localyokel.yokel.ListItems.GrowerContent;
+import com.localyokel.yokel.ListItems.OrderContent;
+import com.localyokel.yokel.ListItems.PackageContent;
 
 public class BottomNavActivity extends AppCompatActivity implements GrowerFragment.OnListFragmentInteractionListener,
-        PackageFragment.OnListFragmentInteractionListener, OrderFragment.OnListFragmentInteractionListener  {
+        OrderFragment.OnListFragmentInteractionListener, PackageFragment.OnListFragmentInteractionListener
+{
 
     //private TextView mTextMessage;
     //private ViewPager mViewPager;
@@ -83,7 +83,17 @@ public class BottomNavActivity extends AppCompatActivity implements GrowerFragme
     }
 
     @Override
-    public void onListFragmentInteraction(DummyContent.DummyItem item) {
+    public void onListFragmentInteraction(OrderContent.OrderItem item) {
+
+    }
+
+    @Override
+    public void onListFragmentInteraction(PackageContent.PackageItem item) {
+
+    }
+
+    @Override
+    public void onListFragmentInteraction(GrowerContent.GrowerItem item) {
 
     }
 }
