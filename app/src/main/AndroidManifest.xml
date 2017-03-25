@@ -10,19 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".MainTabbedActivity"
-            android:label="@string/title_activity_main_tabbed"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity
-            android:name=".ActionBarTabsActivity"
-            android:label="@string/title_activity_action_bar_tabs"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity
             android:name=".BottomNavActivity"
             android:label="@string/title_activity_bottom_nav">
             <intent-filter>
