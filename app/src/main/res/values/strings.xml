@@ -8,7 +8,10 @@
     <string name="title_activity_main_tabbed">MainTabbedActivity</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_action_bar_tabs">ActionBarTabsActivity</string>
-    <string name="title_activity_bottom_nav">BottomNavActivity</string>
+    <string name="title_activity_bottom_nav">Local Yokel</string>
+    <string name="title_plan">Packages</string>
+    <string name="title_growers">Growers</string>
+    <string name="title_orders">Orders</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
