@@ -3,6 +3,8 @@ package com.localyokel.yokel;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.app.FragmentManager;
+import android.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
@@ -12,12 +14,12 @@ import android.widget.TextView;
 
 import com.localyokel.yokel.dummy.DummyContent;
 
-public class BottomNavActivity extends AppCompatActivity implements PackageFragment.OnListFragmentInteractionListener {
+public class BottomNavActivity extends AppCompatActivity implements GrowerFragment.OnListFragmentInteractionListener,
+        PackageFragment.OnListFragmentInteractionListener, OrderFragment.OnListFragmentInteractionListener  {
 
     //private TextView mTextMessage;
-    private ViewPager mViewPager;
-    private NavPagerAdapter mPageAdapter;
-    //private FrameLayout mFrameLayout;
+    //private ViewPager mViewPager;
+    private FrameLayout mFrameLayout;
 
     private PackageFragment mPackageFragment = new PackageFragment();
 
@@ -26,17 +28,31 @@ public class BottomNavActivity extends AppCompatActivity implements PackageFragm
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            Fragment fragment = null;
+            FragmentManager fragmentManager = getFragmentManager();
+
             switch (item.getItemId()) {
                 case R.id.navigation_plan:
-                    mViewPager.setCurrentItem(0);
+                    fragment = new PackageFragment();
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.content, fragment )
+                            .commit();
                     //mTextMessage.setText(R.string.title_plan);
                     return true;
                 case R.id.navigation_grower:
-                    mViewPager.setCurrentItem(1);
+                    fragment = new GrowerFragment();
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.content, fragment )
+                            .commit();
+                    //mViewPager.setCurrentItem(1);
                     //mTextMessage.setText(R.string.title_growers);
                     return true;
                 case R.id.navigation_package:
-                    mViewPager.setCurrentItem(2);
+                    fragment = new OrderFragment();
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.content, fragment )
+                            .commit();
+                    //mViewPager.setCurrentItem(2);
                     //mTextMessage.setText(R.string.title_orders);
                     return true;
             }
@@ -50,11 +66,16 @@ public class BottomNavActivity extends AppCompatActivity implements PackageFragm
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_nav);
 
-        //mTextMessage = (TextView) findViewById(R.id.message);
-        mViewPager = (ViewPager) findViewById(R.id.view_pager);
 
-        mPageAdapter = new NavPagerAdapter(getSupportFragmentManager());
-        mViewPager.setAdapter(mPageAdapter);
+        Fragment fragment = new PackageFragment();
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.content, fragment )
+                .commit();
+        //mTextMessage = (TextView) findViewById(R.id.message);
+        //mViewPager = (ViewPager) findViewById(R.id.view_pager);
+
+        //mViewPager.setAdapter(mPageAdapter);
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
