@@ -11,10 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.localyokel.yokel.ListItems.GrowerContent;
-import com.localyokel.yokel.dummy.DummyContent;
-import com.localyokel.yokel.dummy.DummyContent.DummyItem;
-
-import java.util.List;
 
 /**
  * A fragment representing a list of Items.

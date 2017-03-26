@@ -37,8 +37,10 @@ public class MyGrowerRecyclerViewAdapter extends RecyclerView.Adapter<MyGrowerRe
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        //holder.mIdView.setText(mValues.get(position).name);
-        //holder.mContentView.setText(mValues.get(position).description);
+        holder.mNameView.setText(mValues.get(position).name);
+        holder.mDescriptionView.setText(mValues.get(position).description);
+        holder.mProduceView.setText(mValues.get(position).produces);
+        holder.mLocationView.setText(mValues.get(position).location);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,21 +60,25 @@ public class MyGrowerRecyclerViewAdapter extends RecyclerView.Adapter<MyGrowerRe
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public final View mView;
-        public final TextView mIdView;
-        public final TextView mContentView;
+        public View mView;
+        public TextView mNameView;
+        public TextView mLocationView;
+        public TextView mDescriptionView;
+        public TextView mProduceView;
         public GrowerItem mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.name);
-            mContentView = (TextView) view.findViewById(R.id.description);
+            mNameView = (TextView) view.findViewById(R.id.name);
+            mLocationView = (TextView) view.findViewById(R.id.location);
+            mDescriptionView = (TextView) view.findViewById(R.id.description);
+            mProduceView = (TextView) view.findViewById(R.id.produces);
         }
 
         @Override
         public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
+            return super.toString() + " '" + mDescriptionView.getText() + "'";
         }
     }
 }

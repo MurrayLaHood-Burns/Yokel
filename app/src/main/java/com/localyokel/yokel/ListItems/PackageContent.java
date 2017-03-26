@@ -58,12 +58,14 @@ public class PackageContent {
         public String description;
         public String ingredients;
         public String price;
+        public String image;
 
         public PackageItem() {
             this.name = "test";
             this.description = "test";
             this.ingredients = "test";
             this.price = "test";
+            this.image = "hello1";
         }
 
         @Override

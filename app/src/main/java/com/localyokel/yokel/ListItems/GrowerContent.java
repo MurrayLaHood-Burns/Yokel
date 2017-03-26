@@ -1,5 +1,7 @@
 package com.localyokel.yokel.ListItems;
 
+import com.localyokel.yokel.XmlParser;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -21,12 +23,16 @@ public class GrowerContent {
      */
     public static final Map<String, GrowerItem> ITEM_MAP = new HashMap<String, GrowerItem>();
 
-    private static final int COUNT = 25;
-
     static {
+        GrowerItem[] items;
+
+        XmlParser parser = new XmlParser();
+
+        items = parser.parseGrowers();
+
         // Add some sample items.
-        for (int i = 1; i <= COUNT; i++) {
-            addItem(createDummyItem(i));
+        for (int i = 0; i < items.length; i++) {
+            addItem(items[i]);
         }
     }
 
@@ -35,31 +41,20 @@ public class GrowerContent {
         ITEM_MAP.put(item.name, item);
     }
 
-    private static GrowerItem createDummyItem(int position) {
-        return new GrowerItem(String.valueOf(position), "Item " + position, makeDetails(position));
-    }
-
-    private static String makeDetails(int position) {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Details about Item: ").append(position);
-        for (int i = 0; i < position; i++) {
-            builder.append("\nMore details information here.");
-        }
-        return builder.toString();
-    }
-
     /**
      * A dummy item representing a piece of content.
      */
     public static class GrowerItem {
-        public final String name;
-        public final String description;
-        public final String produces;
+        public String name;
+        public String description;
+        public String produces;
+        public String location;
 
-        public GrowerItem(String id, String content, String details) {
-            this.name = id;
-            this.description = content;
-            this.produces = details;
+        public GrowerItem() {
+            this.name ="test";
+            this.description ="test";
+            this.produces ="test";
+            this.location ="test";
         }
 
         @Override

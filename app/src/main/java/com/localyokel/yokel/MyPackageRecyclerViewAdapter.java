@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.localyokel.yokel.ListItems.PackageContent;
@@ -36,11 +37,33 @@ public class MyPackageRecyclerViewAdapter extends RecyclerView.Adapter<MyPackage
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
+        int picIndex = position % 5;
+
         holder.mItem = mValues.get(position);
         holder.mNameView.setText(mValues.get(position).name);
         holder.mDescriptionView.setText(mValues.get(position).description);
         holder.mIngredientsView.setText(mValues.get(position).ingredients);
         holder.mPriceView.setText(mValues.get(position).price);
+
+
+        switch (picIndex)
+        {
+            case 0:
+                holder.mImageView.setImageResource(R.drawable.hello1);
+                break;
+            case 1:
+                holder.mImageView.setImageResource(R.drawable.hello2);
+                break;
+            case 2:
+                holder.mImageView.setImageResource(R.drawable.hello3);
+                break;
+            case 3:
+                holder.mImageView.setImageResource(R.drawable.hello4);
+                break;
+            case 4:
+                holder.mImageView.setImageResource(R.drawable.hello5);
+                break;
+        }
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +88,7 @@ public class MyPackageRecyclerViewAdapter extends RecyclerView.Adapter<MyPackage
         public TextView mDescriptionView;
         public TextView mIngredientsView;
         public TextView mPriceView;
+        public ImageView mImageView;
         public PackageItem mItem;
 
         public ViewHolder(View view) {
@@ -74,6 +98,7 @@ public class MyPackageRecyclerViewAdapter extends RecyclerView.Adapter<MyPackage
             mDescriptionView = (TextView) view.findViewById(R.id.description);
             mIngredientsView = (TextView) view.findViewById(R.id.ingredients);
             mPriceView = (TextView) view.findViewById(R.id.price);
+            mImageView = (ImageView) view.findViewById(R.id.imageView);
         }
 
         @Override

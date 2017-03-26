@@ -1,5 +1,7 @@
 package com.localyokel.yokel.ListItems;
 
+import com.localyokel.yokel.XmlParser;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -21,50 +23,45 @@ public class OrderContent {
      */
     public static final Map<String, OrderItem> ITEM_MAP = new HashMap<String, OrderItem>();
 
-    private static final int COUNT = 25;
+    private static final int COUNT = 2;
 
     static {
         // Add some sample items.
-        for (int i = 1; i <= COUNT; i++) {
-            addItem(createDummyItem(i));
+        OrderItem[] items;
+
+        XmlParser parser = new XmlParser();
+
+        items = parser.parseOrders();
+
+        for (int i = 0; i < items.length; i++) {
+            addItem(items[i]);
         }
     }
 
     private static void addItem(OrderItem item) {
         ITEMS.add(item);
-        ITEM_MAP.put(item.id, item);
-    }
-
-    private static OrderItem createDummyItem(int position) {
-        return new OrderItem(String.valueOf(position), "Item " + position, makeDetails(position));
-    }
-
-    private static String makeDetails(int position) {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Details about Item: ").append(position);
-        for (int i = 0; i < position; i++) {
-            builder.append("\nMore details information here.");
-        }
-        return builder.toString();
+        ITEM_MAP.put(item.packageName, item);
     }
 
     /**
      * A dummy item representing a piece of content.
      */
     public static class OrderItem {
-        public final String id;
-        public final String content;
-        public final String details;
+        public String packageName;
+        public String summary;
+        public String deliveryDate;
+        public String price;
 
-        public OrderItem(String id, String content, String details) {
-            this.id = id;
-            this.content = content;
-            this.details = details;
+        public OrderItem() {
+            this.packageName="test";
+            this.summary="test";
+            this.deliveryDate="test";
+            this.price="test";
         }
 
         @Override
         public String toString() {
-            return content;
+            return summary;
         }
     }
 }
