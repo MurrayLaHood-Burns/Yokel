@@ -37,7 +37,6 @@ public class MyPackageRecyclerViewAdapter extends RecyclerView.Adapter<MyPackage
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        int picIndex = position % 5;
 
         holder.mItem = mValues.get(position);
         holder.mNameView.setText(mValues.get(position).name);
@@ -46,22 +45,19 @@ public class MyPackageRecyclerViewAdapter extends RecyclerView.Adapter<MyPackage
         holder.mPriceView.setText(mValues.get(position).price);
 
 
-        switch (picIndex)
+        switch (position)
         {
             case 0:
-                holder.mImageView.setImageResource(R.drawable.hello1);
+                holder.mImageView.setImageResource(R.drawable.family_four_opt);
                 break;
             case 1:
-                holder.mImageView.setImageResource(R.drawable.hello2);
+                holder.mImageView.setImageResource(R.drawable.empty_nesters_opt);
                 break;
             case 2:
-                holder.mImageView.setImageResource(R.drawable.hello3);
+                holder.mImageView.setImageResource(R.drawable.date_night_opt);
                 break;
-            case 3:
-                holder.mImageView.setImageResource(R.drawable.hello4);
-                break;
-            case 4:
-                holder.mImageView.setImageResource(R.drawable.hello5);
+            default:
+                holder.mImageView.setImageResource(R.drawable.hello1);
                 break;
         }
 

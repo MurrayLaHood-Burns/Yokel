@@ -37,7 +37,6 @@ public class MyGrowerRecyclerViewAdapter extends RecyclerView.Adapter<MyGrowerRe
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        int picIndex = position %2;
 
         holder.mItem = mValues.get(position);
         holder.mNameView.setText(mValues.get(position).name);
@@ -47,13 +46,16 @@ public class MyGrowerRecyclerViewAdapter extends RecyclerView.Adapter<MyGrowerRe
 
 
 
-        switch (picIndex)
+        switch (position)
         {
             case 0:
-                holder.mImageView.setImageResource(R.drawable.cycle_farms);
+                holder.mImageView.setImageResource(R.drawable.cycle_farms_opt);
                 break;
             case 1:
-                holder.mImageView.setImageResource(R.drawable.best_day_farms);
+                holder.mImageView.setImageResource(R.drawable.best_day_farms_opt);
+                break;
+            case 2:
+                holder.mImageView.setImageResource(R.drawable.liberty_farms_opt);
                 break;
             default:
                 holder.mImageView.setImageResource(R.drawable.farmer1);
