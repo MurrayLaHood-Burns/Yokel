@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.localyokel.yokel.GrowerFragment.OnListFragmentInteractionListener;
@@ -36,11 +37,27 @@ public class MyGrowerRecyclerViewAdapter extends RecyclerView.Adapter<MyGrowerRe
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
+        int picIndex = position %2;
+
         holder.mItem = mValues.get(position);
         holder.mNameView.setText(mValues.get(position).name);
         holder.mDescriptionView.setText(mValues.get(position).description);
         holder.mProduceView.setText(mValues.get(position).produces);
         holder.mLocationView.setText(mValues.get(position).location);
+
+
+
+        switch (picIndex)
+        {
+            case 0:
+                holder.mImageView.setImageResource(R.drawable.cycle_farms);
+                break;
+            case 1:
+                holder.mImageView.setImageResource(R.drawable.best_day_farms);
+                break;
+            default:
+                holder.mImageView.setImageResource(R.drawable.farmer1);
+        }
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +83,7 @@ public class MyGrowerRecyclerViewAdapter extends RecyclerView.Adapter<MyGrowerRe
         public TextView mDescriptionView;
         public TextView mProduceView;
         public GrowerItem mItem;
+        public ImageView mImageView;
 
         public ViewHolder(View view) {
             super(view);
@@ -74,6 +92,7 @@ public class MyGrowerRecyclerViewAdapter extends RecyclerView.Adapter<MyGrowerRe
             mLocationView = (TextView) view.findViewById(R.id.location);
             mDescriptionView = (TextView) view.findViewById(R.id.description);
             mProduceView = (TextView) view.findViewById(R.id.produces);
+            mImageView = (ImageView) view.findViewById(R.id.imageView2);
         }
 
         @Override

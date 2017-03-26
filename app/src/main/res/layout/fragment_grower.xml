@@ -30,16 +30,16 @@
             android:text="@string/grower_name"
             android:textAppearance="?attr/textAppearanceListItem" />
 
-        <TextView
-            android:id="@+id/location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/appbar_padding_top"
-            android:gravity="right|end"
-            android:text="@string/grower_location"
-            android:textAppearance="?attr/textAppearanceListItem" />
-
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/appbar_padding_top"
+        android:gravity="right|end"
+        android:text="@string/grower_location"
+        android:textAppearance="?attr/textAppearanceListItem" />
 
     <TextView
         android:id="@+id/description"
