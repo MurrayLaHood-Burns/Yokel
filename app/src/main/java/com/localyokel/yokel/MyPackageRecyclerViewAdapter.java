@@ -37,8 +37,10 @@ public class MyPackageRecyclerViewAdapter extends RecyclerView.Adapter<MyPackage
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.mNameView.setText(mValues.get(position).name);
+        holder.mDescriptionView.setText(mValues.get(position).description);
+        holder.mIngredientsView.setText(mValues.get(position).ingredients);
+        holder.mPriceView.setText(mValues.get(position).price);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,21 +60,25 @@ public class MyPackageRecyclerViewAdapter extends RecyclerView.Adapter<MyPackage
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public final View mView;
-        public final TextView mIdView;
-        public final TextView mContentView;
+        public View mView;
+        public TextView mNameView;
+        public TextView mDescriptionView;
+        public TextView mIngredientsView;
+        public TextView mPriceView;
         public PackageItem mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.id);
-            mContentView = (TextView) view.findViewById(R.id.content);
+            mNameView = (TextView) view.findViewById(R.id.name);
+            mDescriptionView = (TextView) view.findViewById(R.id.description);
+            mIngredientsView = (TextView) view.findViewById(R.id.ingredients);
+            mPriceView = (TextView) view.findViewById(R.id.price);
         }
 
         @Override
         public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
+            return super.toString() + " '" + mNameView.getText() + "'";
         }
     }
 }
